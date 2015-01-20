@@ -36,7 +36,7 @@
 # Copyright 2015 Your name here, unless otherwise noted.
 #
 
-class mule{
+class mule {
 	$mule_mirror = 'http://s3.amazonaws.com/MuleEE',
 		$mule_version = '3.6.0',
 		$tomcat_version = '7.0.52',
