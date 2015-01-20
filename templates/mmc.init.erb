@@ -1,0 +1,42 @@
+#! /bin/sh
+
+# Init script for managing MMC as a service.
+
+CATALINA_HOME="/opt/mmc/apache-tomcat-<%= @tomcat_version %>"
+CATALINA_PID="$CATALINA_HOME/catalina.pid"
+JAVA_OPTS="-Dmmc.data=<%= @mmc_data_dir %>"
+RUN_AS_USER=<%= @user %>
+RETVAL=$?
+
+case "$1" in
+ start)
+        if [ -f $CATALINA_HOME/bin/startup.sh ];
+          then
+            echo "Starting MMC"
+            sudo su -m $RUN_AS_USER -c "export JAVA_OPTS=$JAVA_OPTS;export CATALINA_PID=$CATALINA_PID;$CATALINA_HOME/bin/startup.sh"
+        fi
+        ;;
+ stop)
+        if [ -f $CATALINA_HOME/bin/shutdown.sh ];
+          then
+            echo "Stopping MMC"
+            sudo su -m $RUN_AS_USER -c "export JAVA_OPTS=$JAVA_OPTS;export CATALINA_PID=$CATALINA_PID;$CATALINA_HOME/bin/shutdown.sh -force"
+        fi
+        ;;
+ status)
+        if [ -f $CATALINA_PID ] && ps --no-heading -p `cat $CATALINA_PID`; then
+                echo "MMC is running"
+                exit 0
+        else
+                echo "MMC is not running"
+                exit 1
+        fi
+        ;;
+ *)
+        echo "Usage: $0 {start|stop|status}"
+        exit 1
+        ;;
+esac
+
+exit $RETVAL
+
