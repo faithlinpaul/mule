@@ -2,9 +2,12 @@
   "Gemfile": "dbc1a15e3a264c03878028240cfc5d89",
   "README.md": "ddaf141610483666c9ecd11f92378206",
   "Rakefile": "20b80e526e351a74df2001f504e756d2",
-  "manifests/init.pp": "1a6b67ce818a79849aaa105a2766c451",
-  "metadata.json": "ca707c4c69c181ce0c36a8cc72bd27cd",
+  "manifests/app/install.pp": "7153e6b717b06faa44d61ca2143d2e7e",
+  "manifests/init.pp": "660142a92c9af52c4aeed2da67a36d1f",
+  "metadata.json": "8d69e089b946ab35b90972d795960d19",
   "spec/classes/init_spec.rb": "ef800016bd741bf5719b8d37af682ec4",
   "spec/spec_helper.rb": "0db89c9a486df193c0e40095422e19dc",
+  "templates/mmc.init.erb": "134e2606f4ee67b30fc117e9f6d78e77",
+  "templates/mule.init.erb": "a5504c9a93d032cd11f6bd9f5c632fe6",
   "tests/init.pp": "d3dc179bf04738aa6e4fc2bdd9dddf66"
 }

@@ -8,7 +8,6 @@
   "project_page": "https://github.com/faithlinpaul/mule",
   "issues_url": "https://github.com/faithlinpaul/mule",
   "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
     {"name":"camptocamp-archive","version_requirement":">= 0.3.6"}
   ]
 }
