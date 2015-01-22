@@ -99,13 +99,6 @@ class mule (
                 require => File[$mmc_basedir]
             }
 
-            file { '/etc/init.d/mmc':
-                ensure => 'link',
-                owner => root,
-                group => root,
-                target => "${tomcat_basedir}/bin/mmc"
-            }
-            
 
             file { "${esb_basedir}/bin/mule":
                 ensure => present,
@@ -130,6 +123,14 @@ class mule (
                 content => template('mule/mmc.init.erb'),
                 require => File[$mmc_basedir]
             }
+	    
+	    file { '/etc/init.d/mmc':
+                ensure => 'link',
+                owner => root,
+                group => root,
+                target => "${tomcat_basedir}/bin/mmc"
+            }
+
 
             service { 'mule':
                 ensure => running,
